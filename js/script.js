@@ -8,16 +8,19 @@ document.querySelectorAll('[data-next]').forEach(btn => {
   btn.addEventListener('click', () => showScreen(btn.dataset.next));
 });
 
-// ---- Ecran "as-tu bien dormi" ----
-const sleepReplies = {
+// ---- Ecrans à choix (sommeil, faim...) ----
+const answerReplies = {
   'sleep-a': "Parfait, parce qu'aujourd'hui commence une belle journée avec moi 🌸",
-  'sleep-b': "Moi aussi je pense à toi tout le temps 💭💕"
+  'sleep-b': "Moi aussi je pense à toi tout le temps 💭💕",
+  'hungry-a': "Alors on partage un croissant ce matin 🥐☕",
+  'hungry-b': "Parfait, je vais devoir te nourrir de bisous alors 😘"
 };
 
 document.querySelectorAll('[data-answer]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.getElementById('sleep-reply').textContent = sleepReplies[btn.dataset.answer];
-    document.getElementById('sleep-continue').classList.remove('hidden');
+    const screen = btn.closest('.screen');
+    screen.querySelector('.sweet-msg').textContent = answerReplies[btn.dataset.answer];
+    screen.querySelector('.btn-primary').classList.remove('hidden');
   });
 });
 

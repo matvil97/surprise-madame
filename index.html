@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>おはよう、Melly 🌸</title>
+<title>おはよう、bébé 🌸</title>
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -37,7 +37,7 @@
   <section class="screen active" id="screen-start">
     <div class="card">
       <p class="kanji-deco">桜</p>
-      <h1>おはよう、Melly</h1>
+      <h1>おはよう、bébé</h1>
       <p class="subtitle">Une petite routine du matin, rien que pour toi ✨</p>
       <button class="btn btn-primary" data-next="screen-sleep">Commencer ☀️</button>
     </div>
@@ -47,13 +47,27 @@
   <section class="screen" id="screen-sleep">
     <div class="card">
       <p class="kanji-deco">眠</p>
-      <h2>Melly... est-ce que tu as bien dormi ? 😴</h2>
+      <h2>Bébé, t'as bien dormi ? 😴</h2>
       <div class="choices">
         <button class="btn btn-choice" data-answer="sleep-a">Comme un chat 🐾</button>
         <button class="btn btn-choice" data-answer="sleep-b">J'ai rêvé de toi 💭</button>
       </div>
-      <p class="sweet-msg" id="sleep-reply"></p>
-      <button class="btn btn-primary hidden" data-next="screen-routine" id="sleep-continue">Suite →</button>
+      <p class="sweet-msg"></p>
+      <button class="btn btn-primary hidden" data-next="screen-hungry">Suite →</button>
+    </div>
+  </section>
+
+  <!-- Ecran 1bis : as-tu faim -->
+  <section class="screen" id="screen-hungry">
+    <div class="card">
+      <p class="kanji-deco">空腹</p>
+      <h2>As-tu faim, bébé ? 🍙</h2>
+      <div class="choices">
+        <button class="btn btn-choice" data-answer="hungry-a">Un peu 🥐</button>
+        <button class="btn btn-choice" data-answer="hungry-b">Affamée 🍜</button>
+      </div>
+      <p class="sweet-msg"></p>
+      <button class="btn btn-primary hidden" data-next="screen-routine">Suite →</button>
     </div>
   </section>
 
@@ -91,7 +105,7 @@
     <div class="card card-final">
       <p class="kanji-deco">愛</p>
       <h2 class="final-title">C'est confirmé 💍</h2>
-      <p class="final-msg">Tu es coincée avec moi pour toujours, Melly.</p>
+      <p class="final-msg">Tu es coincée avec moi pour toujours, bébé.</p>
       <p class="final-msg">Je t'aime plus que les sakura n'aiment le printemps 🌸</p>
       <p class="final-msg">Merci d'être toi. Merci de me rendre heureux chaque jour.</p>
       <p class="final-signature">愛してる。 Je t'aime.</p>
