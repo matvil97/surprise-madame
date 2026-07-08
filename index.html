@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>おはよう、Melly 🌸</title>
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Remplace "https://ton-domaine.com/" par l'URL réelle une fois le site déployé -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pour Melly 🌸">
+<meta property="og:description" content="Une petite surprise, rien que pour toi.">
+<meta property="og:image" content="https://ton-domaine.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pour Melly 🌸">
+<meta name="twitter:description" content="Une petite surprise, rien que pour toi.">
+<meta name="twitter:image" content="https://ton-domaine.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Kosugi+Maru&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="petals"></div>
+<div id="hearts-overlay"></div>
+
+<main id="app">
+
+  <!-- Ecran 0 : accueil -->
+  <section class="screen active" id="screen-start">
+    <div class="card">
+      <p class="kanji-deco">桜</p>
+      <h1>おはよう、Melly</h1>
+      <p class="subtitle">Une petite routine du matin, rien que pour toi ✨</p>
+      <button class="btn btn-primary" data-next="screen-sleep">Commencer ☀️</button>
+    </div>
+  </section>
+
+  <!-- Ecran 1 : as-tu bien dormi -->
+  <section class="screen" id="screen-sleep">
+    <div class="card">
+      <p class="kanji-deco">眠</p>
+      <h2>Melly... est-ce que tu as bien dormi ? 😴</h2>
+      <div class="choices">
+        <button class="btn btn-choice" data-answer="sleep-a">Comme un chat 🐾</button>
+        <button class="btn btn-choice" data-answer="sleep-b">J'ai rêvé de toi 💭</button>
+      </div>
+      <p class="sweet-msg" id="sleep-reply"></p>
+      <button class="btn btn-primary hidden" data-next="screen-routine" id="sleep-continue">Suite →</button>
+    </div>
+  </section>
+
+  <!-- Ecran 2 : routine -->
+  <section class="screen" id="screen-routine">
+    <div class="card">
+      <p class="kanji-deco">日課</p>
+      <h2>C'est l'heure de la routine ✨</h2>
+      <ul class="routine-list" id="routine-list">
+        <li data-emoji="☕">Un café (ou un matcha, on est classe)</li>
+        <li data-emoji="🪥">Se brosser les dents</li>
+        <li data-emoji="💋">Un bisou obligatoire (non négociable)</li>
+        <li data-emoji="🥰">Penser à combien je t'aime</li>
+      </ul>
+      <button class="btn btn-primary hidden" id="routine-continue" data-next="screen-question">Suite →</button>
+    </div>
+  </section>
+
+  <!-- Ecran 3 : la question -->
+  <section class="screen" id="screen-question">
+    <div class="card">
+      <p class="kanji-deco">約束</p>
+      <h2>Une dernière question...</h2>
+      <p class="question-big">Est-ce que tu veux TOUJOURS te marier avec moi ? 🎎</p>
+      <div class="choices choices-question" id="question-choices">
+        <button class="btn btn-yes" id="btn-yes">Oui 💍</button>
+        <button class="btn btn-no" id="btn-no">Non</button>
+      </div>
+      <p class="taunt" id="taunt-msg">&nbsp;</p>
+    </div>
+  </section>
+
+  <!-- Ecran 4 : final -->
+  <section class="screen" id="screen-final">
+    <div class="card card-final">
+      <p class="kanji-deco">愛</p>
+      <h2 class="final-title">C'est confirmé 💍</h2>
+      <p class="final-msg">Tu es coincée avec moi pour toujours, Melly.</p>
+      <p class="final-msg">Je t'aime plus que les sakura n'aiment le printemps 🌸</p>
+      <p class="final-msg">Merci d'être toi. Merci de me rendre heureux chaque jour.</p>
+      <p class="final-signature">愛してる。 Je t'aime.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>

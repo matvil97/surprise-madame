@@ -1,0 +1,310 @@
+:root {
+  --sakura-light: #ffe3ec;
+  --sakura: #ffb7c9;
+  --sakura-deep: #ff8fab;
+  --vermillion: #e0563f;
+  --plum: #5b2a3a;
+  --cream: #fff8f3;
+  --gold: #d9a441;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Kosugi Maru', sans-serif;
+  color: var(--plum);
+  background: radial-gradient(circle at 20% 20%, var(--sakura-light), var(--cream) 60%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--sakura) 1px, transparent 1.5px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#app {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.screen.active {
+  display: flex;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border: 2px solid var(--sakura);
+  border-radius: 28px;
+  padding: 48px 36px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(224, 86, 63, 0.12);
+}
+
+.kanji-deco {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 2.6rem;
+  color: var(--sakura-deep);
+  margin: 0 0 4px;
+  opacity: 0.85;
+}
+
+h1 {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 2.2rem;
+  margin: 0 0 8px;
+  color: var(--vermillion);
+}
+
+h2 {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.6rem;
+  margin: 0 0 20px;
+  color: var(--vermillion);
+}
+
+.subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--plum);
+  margin-bottom: 32px;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 32px;
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--sakura-deep), var(--vermillion));
+  color: white;
+  box-shadow: 0 6px 18px rgba(224, 86, 63, 0.35);
+  margin-top: 24px;
+}
+
+.choices {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.btn-choice {
+  background: var(--sakura-light);
+  color: var(--plum);
+  border: 2px solid var(--sakura);
+}
+
+.btn-choice:hover {
+  background: var(--sakura);
+}
+
+.sweet-msg {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: var(--vermillion);
+  min-height: 1.6em;
+  margin: 20px 0 4px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.routine-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  text-align: left;
+  display: inline-block;
+}
+
+.routine-list li {
+  font-size: 1.1rem;
+  padding: 10px 4px;
+  border-bottom: 1px dashed var(--sakura);
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.routine-list li::before {
+  content: attr(data-emoji) "  ";
+}
+
+.routine-list li:last-child {
+  border-bottom: none;
+}
+
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.question-big {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.3rem;
+  color: var(--vermillion);
+  margin-bottom: 28px;
+}
+
+.choices-question {
+  position: relative;
+  min-height: 140px;
+  align-items: center;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, var(--sakura-deep), var(--vermillion));
+  color: white;
+  box-shadow: 0 6px 18px rgba(224, 86, 63, 0.35);
+  transition: transform 0.2s ease, font-size 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-no {
+  background: white;
+  color: var(--plum);
+  border: 2px solid var(--sakura);
+  position: relative;
+}
+
+.taunt {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--vermillion);
+  min-height: 1.6em;
+  margin-top: 20px;
+}
+
+.card-final {
+  border-color: var(--gold);
+}
+
+.final-title {
+  font-size: 1.9rem;
+}
+
+.final-msg {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.final-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: var(--vermillion);
+  margin-top: 24px;
+}
+
+/* Sakura petals */
+#petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -20px;
+  font-size: 1.2rem;
+  will-change: transform, opacity;
+  animation: fall linear forwards;
+  opacity: 0.85;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) translateX(var(--drift, 40px)) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* Hearts overlay for final screen */
+#hearts-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  font-size: 1.6rem;
+  will-change: transform, opacity;
+  animation: floatUp ease-in forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--drift, 0px)) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 36px 22px;
+  }
+  h1 { font-size: 1.8rem; }
+  .question-big { font-size: 1.1rem; }
+}
